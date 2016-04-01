@@ -17,8 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quickshoppe.charlie.quickshoppe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

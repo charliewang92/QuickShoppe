@@ -5,4 +5,9 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send a message"</string>
     <string name="title_activity_display_message">My Message</string>
+    <color name="babyblue">#00a8c0</color>
+    <color name="orange">#f06030</color>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+
 </resources>

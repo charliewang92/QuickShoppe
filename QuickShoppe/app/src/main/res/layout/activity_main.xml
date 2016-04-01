@@ -1,20 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:shownIn="@layout/activity_main">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@color/babyblue">
 
-    <EditText android:id="@+id/edit_message"
-        android:layout_width="0dp"
+    <TextView android:text="Welcome To" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_message"
-        android:layout_weight="1"/>
+        android:id="@+id/textview"
+        android:textColor="@color/abc_input_method_navigation_guard"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QuickShoppe"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textview"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/abc_input_method_navigation_guard"
+        android:textSize="28dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_name_text"
+        android:hint="Enter Name"
+        android:focusable="true"
+        android:textColorHighlight="#ff7eff15"
+        android:textColorHint="#ffff25e6"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logoonly"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/edit_password_text"
+        android:layout_below="@+id/edit_name_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/edit_name_text"
+        android:layout_alignEnd="@+id/edit_name_text"
+        android:textColorHint="#ffff299f"
+        android:hint="Password" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attempts Left:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/edit_password_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/login_counter_text"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toEndOf="@+id/textview"
+        android:textSize="25dp"
+        android:layout_toRightOf="@+id/textview" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        android:onClick="sendMessage"/>
+        android:text="login"
+        android:id="@+id/login_button"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/textview"
+        android:layout_toStartOf="@+id/textview" />
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up!"
+        android:id="@+id/sign_up_button"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textview"
+        android:layout_toEndOf="@+id/textview" />
+
+</RelativeLayout>
