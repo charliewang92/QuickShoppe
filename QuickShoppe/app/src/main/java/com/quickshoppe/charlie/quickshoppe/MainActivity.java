@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
-    public final static String EXTRA_MESSAGE = "com.quickshoppe.charlie.MESSAGE";
     Button login_button;
     Button sign_up_button;
     EditText name_text;
