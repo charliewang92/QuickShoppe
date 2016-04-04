@@ -1,5 +1,7 @@
 package com.quickshoppe.charlie.quickshoppe;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -36,12 +38,24 @@ public class MainActivity extends ActionBarActivity {
         password_text = (EditText) findViewById(R.id.edit_password_text);
         login_counter_holder = (TextView) findViewById(R.id.login_counter_text);
         login_counter_holder.setVisibility(View.GONE);
+        UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
+        final SQLiteDatabase sqlDb_read = mDbHelper.getReadableDatabase();
+
+
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name_text.getText().toString().equalsIgnoreCase("charlie") &&
-                        password_text.getText().toString().equalsIgnoreCase("charlie")) {
+                String selectQuery = "SELECT " + QuickShoppeUserContract.UserEntry.COLUMN_PASSWORD + " FROM " + "user " + "WHERE " +
+                        QuickShoppeUserContract.UserEntry.COLUMN_NAME_USER_NAME + "=" + "'" + name_text.getText().toString() + "'";
+                Cursor c = sqlDb_read.rawQuery(selectQuery, null);
+                String password = null;
+
+                if (c.moveToFirst()) { // data?
+                    password = c.getString(c.getColumnIndex(QuickShoppeUserContract.UserEntry.COLUMN_PASSWORD));
+                }
+
+                if(password_text.getText().toString().equals(password)) {
                     Toast.makeText(getApplicationContext(), "Logging In!", Toast.LENGTH_SHORT).show();
                     startActivity(home_activity_intent);
                 } else {

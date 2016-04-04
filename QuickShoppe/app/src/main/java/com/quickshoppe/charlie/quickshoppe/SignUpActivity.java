@@ -33,8 +33,9 @@ public class SignUpActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
-        final SQLiteDatabase sqlDb_write = mDbHelper.getWritableDatabase();
         final SQLiteDatabase sqlDb_read = mDbHelper.getReadableDatabase();
+        final SQLiteDatabase sqlDb_write = mDbHelper.getWritableDatabase();
+        final Intent home_activity_intent = new Intent(this, HomeActivity.class);
 
         back_to_home_button = (Button) findViewById(R.id.return_to_home);
         back_to_home_button.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +72,11 @@ public class SignUpActivity extends ActionBarActivity {
                             QuickShoppeUserContract.UserEntry.TABLE_NAME,
                             QuickShoppeUserContract.UserEntry.COLUMN_NAME_NULLABLE,
                             userValues);
+                    Toast.makeText(getApplicationContext(), "Creating Account! Logging In", Toast.LENGTH_SHORT).show();
+                    startActivity(home_activity_intent);
+                    finish();
                     sqlDb_write.close();
+
                 }
             }
         });
@@ -140,7 +145,7 @@ public class SignUpActivity extends ActionBarActivity {
             }
 
         }
-        sqlDb_read.close();
-        return true;
+//        sqlDb_read.close();
+        return ret;
     }
 }
