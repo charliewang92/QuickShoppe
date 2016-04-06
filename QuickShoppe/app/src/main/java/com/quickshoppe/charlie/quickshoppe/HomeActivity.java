@@ -4,14 +4,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+//import com.google.ads.*;
 
 public class HomeActivity extends ActionBarActivity {
+    String[] grocery_items = {"Coffee: $13.91", "Chips: $10.00", "StrawBerry: $15.55", "Fruit Drinks: $12.95"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, grocery_items);
+        ListView listView = (ListView) findViewById(R.id.shopping_list);
+        listView.setAdapter(adapter);
     }
 
     @Override
