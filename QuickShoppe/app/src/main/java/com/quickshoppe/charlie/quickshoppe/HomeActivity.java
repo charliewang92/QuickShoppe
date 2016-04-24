@@ -1,24 +1,55 @@
 package com.quickshoppe.charlie.quickshoppe;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.*;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Button;
+
 //import com.google.ads.*;
 
 public class HomeActivity extends ActionBarActivity {
     String[] grocery_items = {"Coffee: $13.91", "Chips: $10.00", "StrawBerry: $15.55", "Fruit Drinks: $12.95"};
+    Button scannerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, grocery_items);
         ListView listView = (ListView) findViewById(R.id.shopping_list);
         listView.setAdapter(adapter);
+        scannerButton = (Button) findViewById(R.id.scanner_button);
+        final Intent scanItemIntent = new Intent(this, ScannerActivity.class);
+
+
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                String item = ((TextView) view).getText().toString();
+
+                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        scannerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Scanning Item!", Toast.LENGTH_SHORT).show();
+                startActivity(scanItemIntent);
+            }
+        });
     }
 
     @Override
