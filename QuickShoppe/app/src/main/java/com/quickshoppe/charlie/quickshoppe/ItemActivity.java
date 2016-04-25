@@ -4,33 +4,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 
-public class ScannerActivity extends ActionBarActivity {
-    Button returnButton;
+public class ItemActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scanner);
-        returnButton = (Button) findViewById(R.id.returnButton);
+        setContentView(R.layout.activity_item);
+        String itemInfo = getIntent().getStringExtra("itemInfo");
+        TextView textView = (TextView) findViewById(R.id.itemName);
+        textView.setText(itemInfo);
 
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Returning!", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
+
+
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_scanner, menu);
+        getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
     }
 

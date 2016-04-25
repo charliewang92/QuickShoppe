@@ -29,7 +29,7 @@ public class HomeActivity extends ActionBarActivity {
         listView.setAdapter(adapter);
         scannerButton = (Button) findViewById(R.id.scanner_button);
         final Intent scanItemIntent = new Intent(this, ScannerActivity.class);
-
+        final Intent itemInfoIntent = new Intent(this, ItemActivity.class);
 
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -37,9 +37,10 @@ public class HomeActivity extends ActionBarActivity {
                                     long id) {
 
                 String item = ((TextView) view).getText().toString();
-
-                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
-
+                String[] itemComponents = item.split(" ");
+                Toast.makeText(getBaseContext(), "Opening item information for: " + itemComponents[0], Toast.LENGTH_LONG).show();
+                itemInfoIntent.putExtra("itemInfo", itemComponents[0]);
+                startActivity((itemInfoIntent));
             }
         });
 
