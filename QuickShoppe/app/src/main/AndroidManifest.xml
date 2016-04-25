@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.quickshoppe.charlie.quickshoppe.MainActivity" />
         </activity>
+        <activity
+            android:name=".ScannerActivity"
+            android:label="@string/title_activity_scanner" >
+        </activity>
+        <activity
+            android:name=".ItemActivity"
+            android:label="@string/title_activity_item" >
+        </activity>
     </application>
 
 </manifest>

@@ -4,10 +4,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ItemActivity extends ActionBarActivity {
+    Button returnButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +20,15 @@ public class ItemActivity extends ActionBarActivity {
         String itemInfo = getIntent().getStringExtra("itemInfo");
         TextView textView = (TextView) findViewById(R.id.itemName);
         textView.setText(itemInfo);
+        returnButton = (Button) findViewById(R.id.returnButton);
 
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Returning!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
 
 
