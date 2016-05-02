@@ -19,6 +19,7 @@ import android.widget.Button;
 public class HomeActivity extends ActionBarActivity {
     String[] grocery_items = {"Coffee: $13.91", "Chips: $10.00", "StrawBerry: $15.55", "Fruit Drinks: $12.95"};
     Button scannerButton;
+    Button batteryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,10 @@ public class HomeActivity extends ActionBarActivity {
         ListView listView = (ListView) findViewById(R.id.shopping_list);
         listView.setAdapter(adapter);
         scannerButton = (Button) findViewById(R.id.scanner_button);
+        batteryButton = (Button) findViewById(R.id.BatteryMonitor);
         final Intent scanItemIntent = new Intent(this, ScannerActivity.class);
         final Intent itemInfoIntent = new Intent(this, ItemActivity.class);
+        final Intent batteryInfoIntent = new Intent(this, BatteryActivity.class);
 
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -49,6 +52,14 @@ public class HomeActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Scanning Item!", Toast.LENGTH_SHORT).show();
                 startActivity(scanItemIntent);
+            }
+        });
+
+        batteryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Showing battery info...", Toast.LENGTH_LONG).show();
+                startActivity(batteryInfoIntent);
             }
         });
     }
