@@ -40,6 +40,10 @@
             android:name=".ItemActivity"
             android:label="@string/title_activity_item" >
         </activity>
+        <activity
+            android:name=".BatteryActivity"
+            android:label="@string/title_activity_battery" >
+        </activity>
     </application>
 
 </manifest>
