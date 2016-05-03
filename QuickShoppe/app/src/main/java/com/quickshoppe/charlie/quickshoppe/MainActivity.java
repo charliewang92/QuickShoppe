@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
         login_counter_holder.setVisibility(View.GONE);
         UserDbHelper mDbHelper = new UserDbHelper(getApplicationContext());
         final SQLiteDatabase sqlDb_read = mDbHelper.getReadableDatabase();
-
+        System.gc();
 
 
         login_button.setOnClickListener(new View.OnClickListener() {
