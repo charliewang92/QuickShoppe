@@ -11,5 +11,6 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_scanner">ScannerActivity</string>
     <string name="title_activity_item">ItemActivity</string>
+    <string name="title_activity_battery">BatteryActivity</string>
 
 </resources>

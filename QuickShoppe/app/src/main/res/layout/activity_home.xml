@@ -35,4 +35,11 @@
         android:text="Scan Next Item"
         android:id="@+id/scanner_button"
         android:layout_alignParentBottom="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monitor Current Battery Information"
+        android:id="@+id/BatteryMonitor"
+        android:layout_alignParentBottom="true" />
 </LinearLayout>
