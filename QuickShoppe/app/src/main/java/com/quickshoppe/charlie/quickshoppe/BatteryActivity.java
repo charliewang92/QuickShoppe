@@ -15,6 +15,11 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.content.IntentFilter;
 
+/**
+ * Activity to monitor the battery activity of the device
+ * Extends the activity and uses the BatteryManager static class to get information
+ * Also uses a broadcast receiver to receive all the broadcasts that the device gives out 
+ */
 public class BatteryActivity extends ActionBarActivity {
     Button returnButton;
     private TextView batteryInfo;
