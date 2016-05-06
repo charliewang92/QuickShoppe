@@ -16,6 +16,9 @@ import android.widget.Button;
 
 //import com.google.ads.*;
 
+/**
+ * need to 
+ */
 public class HomeActivity extends ActionBarActivity {
     String[] grocery_items = {"Coffee: $13.91", "Chips: $10.00", "StrawBerry: $15.55", "Fruit Drinks: $12.95"};
     Button scannerButton;
